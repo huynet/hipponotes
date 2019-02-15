@@ -64,11 +64,6 @@ export default class App extends Component {
               color="rgb(125, 98, 230)" 
               desc="Cognitive Science"
             />
-            <Card 
-              title="ACM" 
-              color="rgb(236, 87, 93)"
-              desc="ACM Projects"
-            />
           </SafeAreaView>
         </ScrollView>
       </View>
