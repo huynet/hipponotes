@@ -6,7 +6,7 @@ const _borderRadius = 8;
 const _width = Dimensions.get("window").width - _margin * 2
 const _height = 70
 
-class Card extends Component {
+class ListCard extends Component {
      render() {
           const { title, color, desc } = this.props
           return(
@@ -26,7 +26,7 @@ class Card extends Component {
      }
 }
 
-export default Card;
+export default ListCard;
 
 const styles = StyleSheet.create({
      container: {
