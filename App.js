@@ -4,12 +4,7 @@ import styled from "styled-components"
 import Card from './components/Card';
 import ListCard from './components/ListCard'
 
-import { Font } from 'expo';
-
 export default class App extends Component {
-  componentDidMount() {
-
-  }
 
   render() {
     return (
