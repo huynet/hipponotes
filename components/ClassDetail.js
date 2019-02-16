@@ -6,11 +6,30 @@ import {
 } from 'react-native';
 
 class ClassDetail extends Component {
+     static navigationOptions = ({ navigation, screenProps }) => ({
+          title: navigation.state.params.title,
+          // headerStyle: {
+          //      backgroundColor: '#f4511e',
+          // },
+          // headerTintColor: '#fff',
+          headerTitleStyle: {
+               fontFamily: 'Avenir Next',
+          },
+     });
+
      render() {
+          const { navigation } = this.props;
+          const title = navigation.getParam('title', '');
+          const color = navigation.getParam('color', 'white');
+          const desc = navigation.getParam('desc', '')
+
           return (
                <View style={styles.container}>
                     <Text style={styles.text}>
-                         ClassDetail.js
+                         {title}
+                    </Text>
+                    <Text style={[styles.text, {backgroundColor: color}]}>
+                         {desc}
                     </Text>
                </View>
           )
