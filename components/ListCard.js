@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
+
+import { withNavigation } from 'react-navigation';
 
 const _margin = 30;
 const _borderRadius = 8;
@@ -10,8 +12,11 @@ class ListCard extends Component {
      render() {
           const { title, color, desc } = this.props
           return(
-               <View 
+               <TouchableOpacity 
                     style={[styles.container, {backgroundColor: color}]}
+                    onPress={() => {
+                         this.props.navigation.navigate('Detail')
+                    }}
                >
                     <View style={styles.cover}>
                          <Text style={styles.title}>
@@ -21,20 +26,24 @@ class ListCard extends Component {
                               {desc}
                          </Text>
                     </View>
-               </View>
+               </TouchableOpacity>
           )
      }
 }
 
-export default ListCard;
+export default withNavigation(ListCard);
 
 const styles = StyleSheet.create({
      container: {
-          // backgroundColor: 'rgb(255, 45, 18)',
           width: _width,
           height: _height,
           borderRadius: _borderRadius,
           marginTop: 15,
+
+          shadowOpacity: 0.125,
+          shadowRadius: 5,
+          shadowColor: 'black',
+          shadowOffset: { height: 2, width: 2 },
      },
      cover: {
 

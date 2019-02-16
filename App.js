@@ -106,6 +106,7 @@
 // });
 
 import React from 'react';
+import { Ionicons } from '@expo/vector-icons';
 
 import { 
      createStackNavigator,
@@ -115,14 +116,54 @@ import {
 } from 'react-navigation'
 
 import ScheduleScreen from './components/AppStack/ScheduleScreen';
-import ClassScreen from './components/AppStack/ClassScreen';
+import ClassesScreen from './components/AppStack/ClassesScreen';
 import ProfileScreen from './components/AppStack/ProfileScreen';
+
+import ClassDetail from './components/ClassDetail'
 import ListCard from './components/ListCard'
 
+//const ScheduleStack;
+
+const ClassesStack = createStackNavigator({
+     Classes: {
+          screen: ClassesScreen,
+          navigationOptions: {
+               header: null
+          }
+     },
+     Detail: ClassDetail
+})
+
+// const ProfileStack
+
 const AppStack = createBottomTabNavigator({
-     Schedule: ScheduleScreen,
-     Class: ClassScreen,
-     Profile: ProfileScreen
+     Schedule: {
+          screen: ScheduleScreen,
+          navigationOptions: {
+               tabBarLabel: 'Schedule',
+               tabBarIcon: ({ tintColor }) => (
+                    <Ionicons name="md-calendar" color={tintColor} size={24}/>
+               )
+          }
+     },
+     Classes: {
+          screen: ClassesStack,
+          navigationOptions: {
+               tabBarLabel: 'Classes',
+               tabBarIcon: ({ tintColor }) => (
+                    <Ionicons name="ios-albums" color={tintColor} size={24}/>
+               )
+          }
+     },
+     Profile: {
+          screen: ProfileScreen,
+          navigationOptions: {
+               tabBarLabel: 'Profile',
+               tabBarIcon: ({ tintColor }) => (
+                    <Ionicons name="ios-person" color={tintColor} size={24}/>
+               )
+          }
+     }
 })
 
 const App = createAppContainer(AppStack)

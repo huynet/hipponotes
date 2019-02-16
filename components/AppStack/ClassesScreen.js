@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView } from 'react-native';
 import ListCard from '../ListCard'
 
-class ClassScreen extends Component {
+class ClassesScreen extends Component {
 
   render() {
     return (
@@ -51,7 +51,7 @@ class ClassScreen extends Component {
   }
 }
 
-export default ClassScreen;
+export default ClassesScreen;
 
 const styles = StyleSheet.create({
   container: {
