@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView } from 'react-native';
 import styled from "styled-components"
 import Card from './components/Card';
+import ListCard from './components/ListCard'
+
+import { Font } from 'expo';
 
 export default class App extends Component {
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -24,45 +31,25 @@ export default class App extends Component {
           <SafeAreaView
             style={styles.classes}
           >
-            <Card 
+            <ListCard 
               title="CS2336" 
-              color="rgb(236, 79, 52)" 
+              color="#E8384F" 
               desc="Introduction to Computer Science 2"
             />
-            <Card 
+            <ListCard 
               title="CS2305" 
-              color="rgb(238, 133, 50)" 
+              color="#FD612C" 
               desc="Discrete Mathematics"
             />
-            <Card 
+            <ListCard 
               title="MATH2418" 
-              color="rgb(245, 220, 74)"
+              color="#A4CF30"
               desc="Linear Algebra" 
             />
-            <Card 
+            <ListCard 
               title="MATH2419" 
-              color="rgb(183, 214, 68)" 
+              color="#62D26F" 
               desc="Calculus 2"
-            />
-            <Card 
-              title="CGS2301.HN1" 
-              color="rgb(92, 196, 58)" 
-              desc="Cognitive Science"
-            />
-            <Card 
-              title="ACM" 
-              color="rgb(236, 87, 93)"
-              desc="ACM Projects"
-            />
-                        <Card 
-              title="MATH2419" 
-              color="rgb(101, 200, 122)" 
-              desc="Calculus 2"
-            />
-            <Card 
-              title="CGS2301.HN1" 
-              color="rgb(125, 98, 230)" 
-              desc="Cognitive Science"
             />
           </SafeAreaView>
         </ScrollView>
@@ -74,7 +61,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f3f5'
+    backgroundColor: 'rgb(255, 255, 255)'
   },
   cover: {
 
@@ -84,7 +71,7 @@ const styles = StyleSheet.create({
     height: 44,
     backgroundColor: 'black',
     borderRadius: 22,
-    marginLeft: 20,
+    marginLeft: 30,
     position: 'absolute',
     top: 0,
     left: 0
@@ -92,25 +79,29 @@ const styles = StyleSheet.create({
   titleBar: {
     width: '100%',
     marginTop: 50,
-    paddingLeft: 75,
+    paddingLeft: 90,
   },
   title: {
     fontSize: 16,
+    fontFamily: 'Avenir Next',
     color: '#b8bece',
     fontWeight: '500',
   },
   subTitle: {
+    fontSize: 15,
+    fontFamily: 'Avenir Next',
     color: '#b8bece',
     fontWeight: '600',
-    fontSize: 15,
-    marginLeft: 20,
-    marginTop: 40,
+    marginLeft: 30,
+    marginTop: 25,
     textTransform: 'uppercase'
   },
   name: {
     fontSize: 20,
+    fontFamily: 'Avenir Next',
     color: '#3c4560',
-    fontWeight: '700'
+    fontWeight: '700',
+    marginTop: -3
   },
   classes: {
     flexDirection: 'row',
