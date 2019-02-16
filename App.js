@@ -26,27 +26,27 @@ export default class App extends Component {
           >
             <Card 
               title="CS2336" 
-              color="rgb(236, 87, 93)" 
+              color="rgb(236, 79, 52)" 
               desc="Introduction to Computer Science 2"
             />
             <Card 
               title="CS2305" 
-              color="rgb(245, 188, 65)" 
+              color="rgb(238, 133, 50)" 
               desc="Discrete Mathematics"
             />
             <Card 
               title="MATH2418" 
-              color="rgb(61, 147, 231)"
+              color="rgb(245, 220, 74)"
               desc="Linear Algebra" 
             />
             <Card 
               title="MATH2419" 
-              color="rgb(101, 200, 122)" 
+              color="rgb(183, 214, 68)" 
               desc="Calculus 2"
             />
             <Card 
               title="CGS2301.HN1" 
-              color="rgb(125, 98, 230)" 
+              color="rgb(92, 196, 58)" 
               desc="Cognitive Science"
             />
             <Card 
