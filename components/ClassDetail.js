@@ -126,7 +126,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     height: 44,
   },
-  
   searchBar: {
      borderWidth: 1,
      height: 40
