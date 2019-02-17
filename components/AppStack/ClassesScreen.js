@@ -4,6 +4,10 @@ import ListCard from '../ListCard'
 
 class ClassesScreen extends Component {
 
+  static navigationOptions = {
+    header: null
+  }
+
   render() {
     return (
       <View style={styles.container}>

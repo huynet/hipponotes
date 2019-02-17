@@ -106,6 +106,9 @@
 // });
 
 import React from 'react';
+import { 
+     TouchableOpacity
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { 
@@ -126,12 +129,11 @@ import ListCard from './components/ListCard'
 
 const ClassesStack = createStackNavigator({
      Classes: {
-          screen: ClassesScreen,
-          navigationOptions: {
-               header: null
-          }
+          screen: ClassesScreen
      },
-     Detail: ClassDetail
+     Detail: {
+          screen: ClassDetail
+     }
 })
 
 // const ProfileStack
