@@ -8,10 +8,6 @@ import {
 class ClassDetail extends Component {
      static navigationOptions = ({ navigation, screenProps }) => ({
           title: navigation.state.params.title,
-          // headerStyle: {
-          //      backgroundColor: '#f4511e',
-          // },
-          // headerTintColor: '#fff',
           headerTitleStyle: {
                fontFamily: 'Avenir Next',
           },
