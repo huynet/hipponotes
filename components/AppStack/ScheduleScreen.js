@@ -12,10 +12,10 @@ class ScheduleScreen extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
-                {/* <AgendaScreen /> */}
-                <Text style={styles.text}>
+                <AgendaScreen />
+                {/* <Text style={styles.text}>
                     ScheduleScreen
-                </Text>
+                </Text> */}
             </SafeAreaView>
         )
     }
@@ -26,8 +26,8 @@ export default ScheduleScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        // justifyContent: 'center',
+        // alignItems: 'center'
     },
     text: {
         fontFamily: 'Avenir Next',
