@@ -1,32 +1,31 @@
 import React, { Component } from 'react';
 import {
-     View,
-     Text,
-     StyleSheet
+    SafeAreaView,
+    Text,
+    StyleSheet
 } from 'react-native'
+import { Agenda } from 'react-native-calendars'
+
+import AgendaScreen from '../AgendaScreen'
 
 class ScheduleScreen extends Component {
-     render() {
-          return (
-               <View style={styles.container}>
-                    <Text style={styles.text}>
-                         ScheduleScreen
-                    </Text>
-               </View>
-          )
-     }
+    render() {
+        return (
+            <SafeAreaView style={styles.container}>
+                <AgendaScreen />
+            </SafeAreaView>
+        )
+    }
 }
 
 export default ScheduleScreen;
 
 const styles = StyleSheet.create({
-     container: {
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center'
-     },
-     text: {
-          fontFamily: 'Avenir Next',
-          fontSize: 20,
-     }
+    container: {
+        flex: 1,
+    },
+    text: {
+        fontFamily: 'Avenir Next',
+        fontSize: 20,
+    }
 })
