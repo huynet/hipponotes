@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView } from 'react-native';
 import ListCard from '../ListCard'
+import SquareCard from '../SquareCard'
 
 class ClassesScreen extends Component {
 
@@ -47,6 +48,11 @@ class ClassesScreen extends Component {
               title="MATH2419" 
               color="#62D26F" 
               desc="Calculus 2"
+            />
+            <ListCard 
+              title="PHIL1301" 
+              color="#4186E0" 
+              desc="Intro to Philosophy"
             />
           </SafeAreaView>
         </ScrollView>
