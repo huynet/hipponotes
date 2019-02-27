@@ -107,12 +107,10 @@ export default class CameraExample extends React.Component {
                                     justifyContent: 'center',
                                 }}
                                 onPress={() => {
-                                    this.setState({
-                                        type:
-                                            this.state.type === Camera.Constants.Type.back
-                                                ? Camera.Constants.Type.front
-                                                : Camera.Constants.Type.back
-                                    });
+                                    if (this.camera) {
+                                        let photo = this.camera.takePictureAsync();
+                                        console.log(photo)
+                                    }
                                 }}
                             >
                                 <Image
@@ -146,7 +144,7 @@ export default class CameraExample extends React.Component {
                                     Flip{" "}
                                 </Text>
                             </TouchableOpacity>
-                            
+
                         </View>
                     </Camera>
                 </View>
