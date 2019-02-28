@@ -58,16 +58,32 @@ export default class CameraExample extends React.Component {
         this.setState({ hasCameraPermission: status === "granted" });
     }
 
+    snap = async () => {
+        console.log("TEST")
+        if (this.camera) {
+          let photo = await this.camera.takePictureAsync();
+          console.log(photo)
+        } else (
+            console.log("not a cam")
+        )
+      };
+
     render() {
         const { hasCameraPermission } = this.state;
         if (hasCameraPermission === null) {
+            console.log("HAs access to cam")
             return <View />;
         } else if (hasCameraPermission === false) {
+            console.log("NO ACCESS LMAO")
             return <Text>No access to camera</Text>;
         } else {
             return (
                 <View style={{ flex: 1 }}>
-                    <Camera style={{ flex: 1 }} type={this.state.type}>
+                    <Camera 
+                        style={{ flex: 1 }} 
+                        type={this.state.type}
+                        ref={ref => { this.camera = ref }}
+                    >
                         <View
                             style={{
                                 flex: 1,
@@ -107,10 +123,7 @@ export default class CameraExample extends React.Component {
                                     justifyContent: 'center',
                                 }}
                                 onPress={() => {
-                                    if (this.camera) {
-                                        let photo = this.camera.takePictureAsync();
-                                        console.log(photo)
-                                    }
+                                    this.snap();
                                 }}
                             >
                                 <Image
