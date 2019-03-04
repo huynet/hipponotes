@@ -18,7 +18,7 @@ class CameraScreen extends Component {
         if (this.camera) {
             let photo = await this.camera.takePictureAsync()
             await this.setState({ photo: photo })
-            await console.log('PHoto is')
+            await console.log('Photo is')
             console.log(this.state.photo)
         } else console.log('not a cam')
     }
@@ -31,7 +31,7 @@ class CameraScreen extends Component {
             return (
                 <View>
                     <Text>No access to camera</Text>
-                    <Text>Head to settings and allow us!</Text>
+                    <Text>Head to settings and free us!</Text>
                 </View>
             )
         } else {
