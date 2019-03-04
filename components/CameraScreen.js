@@ -7,7 +7,8 @@ import {
 } from "react-native";
 import { 
     Camera, 
-    Permissions 
+    ImagePicker,
+    Permissions
 } from "expo";
 
 class CameraScreen extends Component {
@@ -25,7 +26,9 @@ class CameraScreen extends Component {
         console.log("TEST")
         if (this.camera) {
           let photo = await this.camera.takePictureAsync();
-          console.log(photo)
+          await this.setState({ photo: photo })
+          await console.log("PHoto is")
+          console.log(this.state.photo)
         } else (
             console.log("not a cam")
         )
@@ -36,7 +39,12 @@ class CameraScreen extends Component {
         if (hasCameraPermission === null) {
             return <View />;
         } else if (hasCameraPermission === false) {
-            return <Text>No access to camera</Text>;
+            return (
+                <View>
+                    <Text>No access to camera</Text>
+                    <Text>Head to settings and allow us!</Text>
+                </View>
+            )
         } else {
             return (
                 <View style={{ flex: 1 }}>
@@ -54,7 +62,7 @@ class CameraScreen extends Component {
                         >
                             <TouchableOpacity
                                 style={{
-                                    flex: 0.1,
+                                    flex: 0.2,
                                     alignSelf: "flex-end",
                                     alignItems: "center"
                                 }}
@@ -82,6 +90,7 @@ class CameraScreen extends Component {
                                     alignSelf: "flex-end",
                                     alignItems: "center",
                                     justifyContent: 'center',
+                                    marginBottom: 40
                                 }}
                                 onPress={() => {
                                     this.snap();
@@ -98,24 +107,21 @@ class CameraScreen extends Component {
 
                             <TouchableOpacity
                                 style={{
-                                    flex: 0.1,
+                                    flex: 0.2,
                                     alignSelf: "flex-end",
                                     alignItems: "center"
                                 }}
                                 onPress={() => {
-                                    this.setState({
-                                        type:
-                                            this.state.type === Camera.Constants.Type.back
-                                                ? Camera.Constants.Type.front
-                                                : Camera.Constants.Type.back
-                                    });
+                                    this.props.navigation.navigate('Photo', {
+                                        photo: this.state.photo
+                                    })
                                 }}
                             >
                                 <Text
                                     style={{ fontSize: 18, marginBottom: 10, color: "white" }}
                                 >
                                     {" "}
-                                    Flip{" "}
+                                    Go{" "}
                                 </Text>
                             </TouchableOpacity>
 

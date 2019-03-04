@@ -15,12 +15,39 @@ import ScheduleScreen from './components/AppStack/ScheduleScreen';
 import ClassesScreen from './components/AppStack/ClassesScreen';
 import ProfileScreen from './components/AppStack/ProfileScreen';
 
+import CameraScreen from './components/CameraScreen';
+import PhotoScreen from './components/PhotoScreen';
+
 import ClassDetail from './components/ClassDetail'
 import ListCard from './components/ListCard'
 
 import ProfileSettings from './components/ProfileSettings'
 
-//const ScheduleStack;
+const ScheduleStack = createStackNavigator({
+    Schedule: {
+        screen: ScheduleScreen
+    },
+    Camera: {
+        screen: CameraScreen,
+        navigationOptions: {
+            header: null
+        }
+    },
+    Photo: {
+        screen: PhotoScreen
+    }
+})
+
+ScheduleStack.navigationOptions = ({ navigation }) => {
+    let tabBarVisible = true;
+    if (navigation.state.index == 1) {
+      tabBarVisible = false;
+    }
+  
+    return {
+      tabBarVisible,
+    };
+  };
 
 const ClassesStack = createStackNavigator({
     Classes: {
@@ -42,9 +69,9 @@ const ProfileStack = createStackNavigator({
 
 const AppStack = createBottomTabNavigator({
     Schedule: {
-        screen: ScheduleScreen,
+        screen: ScheduleStack,
         navigationOptions: {
-            tabBarLabel: 'New Note',
+            tabBarLabel: 'Snaps',
             tabBarIcon: ({ tintColor }) => (
                 <Ionicons name="md-calendar" color={tintColor} size={24} />
             )
