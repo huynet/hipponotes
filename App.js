@@ -42,7 +42,7 @@ const ScheduleStack = createStackNavigator({
 
 ScheduleStack.navigationOptions = ({ navigation }) => {
     let tabBarVisible = true
-    if (navigation.state.index == 1) {
+    if (navigation.state.index == 1 || navigation.state.index == 2) {
         tabBarVisible = false
     }
 

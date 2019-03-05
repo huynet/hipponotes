@@ -127,6 +127,28 @@ class CameraScreen extends Component {
                                     Go{' '}
                                 </Text>
                             </TouchableOpacity>
+
+                            <TouchableOpacity
+                                style={{
+                                    flex: 0.2,
+                                    alignSelf: 'flex-end',
+                                    alignItems: 'center',
+                                }}
+                                onPress={() => {
+                                    this.props.navigation.navigate('CameraRoll')
+                                }}
+                            >
+                                <Text
+                                    style={{
+                                        fontSize: 18,
+                                        marginBottom: 10,
+                                        color: 'white',
+                                    }}
+                                >
+                                    {' '}
+                                    Pick{' '}
+                                </Text>
+                            </TouchableOpacity>
                         </View>
                     </Camera>
                 </View>

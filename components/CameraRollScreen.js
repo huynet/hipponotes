@@ -1,8 +1,15 @@
 import React from 'react'
-import { Button, Image, View } from 'react-native'
+import { Button, Image, View, Dimensions } from 'react-native'
 import { ImagePicker, Camera, Permissions } from 'expo'
 
+var { height, width } = Dimensions.get('window')
+
 export default class ImagePickerExample extends React.Component {
+
+    static navigationOptions = {
+        header: null
+    }
+    
     state = {
         image: null,
         hasCameraRollPermission: null,
@@ -43,7 +50,7 @@ export default class ImagePickerExample extends React.Component {
                     {image && (
                         <Image
                             source={{ uri: image }}
-                            style={{ width: 200, height: 200 }}
+                            style={{ width: width, height: height }}
                         />
                     )}
                 </View>
@@ -53,8 +60,8 @@ export default class ImagePickerExample extends React.Component {
 
     _pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
-            allowsEditing: true,
-            aspect: [6, 3],
+            // allowsEditing: true,
+            // aspect: [4, 3],
         })
 
         console.log(result)
