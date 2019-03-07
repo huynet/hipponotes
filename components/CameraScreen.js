@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, Image } from 'react-native'
-import { Camera, ImagePicker, Permissions } from 'expo'
+import { Camera, ImagePicker, Permissions, Svg } from 'expo'
 
 class CameraScreen extends Component {
     state = {
@@ -58,19 +58,15 @@ class CameraScreen extends Component {
                                     alignItems: 'center',
                                 }}
                                 onPress={() => {
-                                    this.setState({
-                                        type:
-                                            this.state.type ===
-                                            Camera.Constants.Type.back
-                                                ? Camera.Constants.Type.front
-                                                : Camera.Constants.Type.back,
+                                    this.props.navigation.navigate('Photo', {
+                                        photo: this.state.photo,
                                     })
                                 }}
                             >
                                 <Text
                                     style={{
                                         fontSize: 18,
-                                        marginBottom: 10,
+                                        marginBottom: 40,
                                         color: 'white',
                                     }}
                                 >
@@ -111,42 +107,24 @@ class CameraScreen extends Component {
                                     alignItems: 'center',
                                 }}
                                 onPress={() => {
-                                    this.props.navigation.navigate('Photo', {
-                                        photo: this.state.photo,
+                                    this.setState({
+                                        type:
+                                            this.state.type ===
+                                            Camera.Constants.Type.back
+                                                ? Camera.Constants.Type.front
+                                                : Camera.Constants.Type.back,
                                     })
                                 }}
                             >
                                 <Text
                                     style={{
                                         fontSize: 18,
-                                        marginBottom: 10,
+                                        marginBottom: 40,
                                         color: 'white',
                                     }}
                                 >
                                     {' '}
                                     Go{' '}
-                                </Text>
-                            </TouchableOpacity>
-
-                            <TouchableOpacity
-                                style={{
-                                    flex: 0.2,
-                                    alignSelf: 'flex-end',
-                                    alignItems: 'center',
-                                }}
-                                onPress={() => {
-                                    this.props.navigation.navigate('CameraRoll')
-                                }}
-                            >
-                                <Text
-                                    style={{
-                                        fontSize: 18,
-                                        marginBottom: 10,
-                                        color: 'white',
-                                    }}
-                                >
-                                    {' '}
-                                    Pick{' '}
                                 </Text>
                             </TouchableOpacity>
                         </View>
