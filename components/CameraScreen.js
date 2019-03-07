@@ -18,8 +18,10 @@ class CameraScreen extends Component {
         if (this.camera) {
             let photo = await this.camera.takePictureAsync()
             await this.setState({ photo: photo })
-            await console.log('Photo is')
-            console.log(this.state.photo)
+            
+            this.props.navigation.navigate('Photo', {
+                photo: this.state.photo,
+            });
         } else console.log('not a cam')
     }
 
@@ -53,6 +55,27 @@ class CameraScreen extends Component {
                         >
                             <TouchableOpacity
                                 style={{
+                                    //alignSelf: 'flex-start',
+                                    //alignItems: 'center',
+                                    position: 'absolute',
+                                }}
+                                onPress={() => {
+                                    this.props.navigation.goBack()
+                                }}
+                            >
+                                <Image
+                                    style={{
+                                        height: 30,
+                                        width: 30,
+                                        marginTop: 60,
+                                        marginLeft: 40,
+                                    }}
+                                    source={require('../assets/back.png')}
+                                />
+                            </TouchableOpacity>
+
+                            <TouchableOpacity
+                                style={{
                                     flex: 0.2,
                                     alignSelf: 'flex-end',
                                     alignItems: 'center',
@@ -63,16 +86,15 @@ class CameraScreen extends Component {
                                     })
                                 }}
                             >
-                                <Text
+                                <Image
                                     style={{
-                                        fontSize: 18,
-                                        marginBottom: 40,
-                                        color: 'white',
+                                        height: 40,
+                                        width: 40,
+                                        marginBottom: 50,
+                                        marginLeft: 80,
                                     }}
-                                >
-                                    {' '}
-                                    Flip{' '}
-                                </Text>
+                                    source={require('../assets/album.png')}
+                                />
                             </TouchableOpacity>
 
                             {/* Snap */}
@@ -85,7 +107,7 @@ class CameraScreen extends Component {
                                     marginBottom: 40,
                                 }}
                                 onPress={() => {
-                                    this.snap()
+                                    this.snap();
                                 }}
                             >
                                 <Image
@@ -93,10 +115,7 @@ class CameraScreen extends Component {
                                         height: 60,
                                         width: 60,
                                     }}
-                                    source={{
-                                        uri:
-                                            'http://icons.iconarchive.com/icons/martz90/circle/256/video-camera-icon.png',
-                                    }}
+                                    source={require('../assets/snap.png')}
                                 />
                             </TouchableOpacity>
 
@@ -116,16 +135,15 @@ class CameraScreen extends Component {
                                     })
                                 }}
                             >
-                                <Text
+                                <Image
                                     style={{
-                                        fontSize: 18,
-                                        marginBottom: 40,
-                                        color: 'white',
+                                        height: 40,
+                                        width: 40,
+                                        marginBottom: 50,
+                                        marginRight: 80,
                                     }}
-                                >
-                                    {' '}
-                                    Go{' '}
-                                </Text>
+                                    source={require('../assets/reverse.png')}
+                                />
                             </TouchableOpacity>
                         </View>
                     </Camera>
