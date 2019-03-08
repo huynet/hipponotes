@@ -76,9 +76,14 @@ class CameraScreen extends Component {
 
                             <TouchableOpacity
                                 style={{
-                                    flex: 0.2,
-                                    alignSelf: 'flex-end',
-                                    alignItems: 'center',
+                                    // flex: 0.2,
+                                    // alignSelf: 'flex-end',
+                                    // alignItems: 'center',
+                                    position: 'absolute',
+                                    // justifyContent: 'center',
+                                    // alignItems: 'center',
+                                    left: 80,
+                                    bottom: 50
                                 }}
                                 onPress={() => {
                                     this.props.navigation.navigate('Photo', {
@@ -90,8 +95,8 @@ class CameraScreen extends Component {
                                     style={{
                                         height: 40,
                                         width: 40,
-                                        marginBottom: 50,
-                                        marginLeft: 80,
+                                        // marginBottom: 50,
+                                        // marginLeft: 80,
                                     }}
                                     source={require('../assets/album.png')}
                                 />
@@ -100,11 +105,15 @@ class CameraScreen extends Component {
                             {/* Snap */}
                             <TouchableOpacity
                                 style={{
-                                    flex: 1,
-                                    alignSelf: 'flex-end',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    marginBottom: 40,
+                                    //flex: 1,
+                                    // alignSelf: 'flex-end',
+                                    // alignItems: 'center',
+                                    // justifyContent: 'center',
+
+                                    position: 'absolute',
+                                    backgroundColor: 'red',
+                                    alignSelf: 'center',
+                                    bottom: 40,
                                 }}
                                 onPress={() => {
                                     this.snap();
@@ -121,9 +130,14 @@ class CameraScreen extends Component {
 
                             <TouchableOpacity
                                 style={{
-                                    flex: 0.2,
-                                    alignSelf: 'flex-end',
-                                    alignItems: 'center',
+                                    // flex: 0.2,
+                                    // alignSelf: 'flex-end',
+                                    // alignItems: 'center',
+                                    position: 'absolute',
+                                    // justifyContent: 'center',
+                                    // alignItems: 'center',
+                                    right: 80,
+                                    bottom: 50
                                 }}
                                 onPress={() => {
                                     this.setState({
@@ -139,8 +153,8 @@ class CameraScreen extends Component {
                                     style={{
                                         height: 40,
                                         width: 40,
-                                        marginBottom: 50,
-                                        marginRight: 80,
+                                        // marginBottom: 50,
+                                        // marginRight: 80,
                                     }}
                                     source={require('../assets/reverse.png')}
                                 />
