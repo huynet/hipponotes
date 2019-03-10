@@ -1,10 +1,8 @@
 import React from 'react'
-import { TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
 import {
     createStackNavigator,
-    createSwitchNavigator,
     createBottomTabNavigator,
     createAppContainer,
 } from 'react-navigation'
@@ -30,13 +28,6 @@ const ScheduleStack = createStackNavigator({
         screen: CameraScreen,
         navigationOptions: {
             header: null,
-            transitionConfig: () => ({
-                transitionSpec: {
-                    duration: 0,
-                    timing: Animated.timing,
-                    easing: Easing.step0,
-                },
-            }),
         },
     },
     CameraRoll: {

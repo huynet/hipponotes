@@ -3,14 +3,7 @@ import { View, Image, Text, StyleSheet } from 'react-native'
 
 class PhotoScreen extends Component {
     static navigationOptions = {
-        header: null,
-        transitionConfig : () => ({
-            transitionSpec: {
-                duration: 5,
-                timing: Animated.timing,
-                easing: Easing.step0,
-            },
-        }),
+        header: null
     }
 
     render() {
@@ -33,9 +26,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 40,
-        backgroundColor: 'yellow',
+        backgroundColor: '#F1F3FA',
     },
     image: {
         flex: 1,
+        borderRadius: 10,
     },
 })
