@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1,
-        width: _width / 2 - 20,
-        height: _height / 2 - 20,
+        width: (_width / 2) - 20,
+        //height: _height / 2 - 20,
         borderRadius: 10,
     },
 })
