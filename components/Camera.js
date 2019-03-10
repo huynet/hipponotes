@@ -2,8 +2,12 @@ import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, Image, Dimensions } from 'react-native'
 import { Camera, ImagePicker, Permissions, Svg } from 'expo'
 
+var { height, width } = Dimensions.get('window')
+
 class CameraScreen extends Component {
     state = {
+        image: null,
+        hasCameraRollPermission: null,
         hasCameraPermission: null,
         type: Camera.Constants.Type.back,
     }
@@ -13,7 +17,7 @@ class CameraScreen extends Component {
         this.setState({ hasCameraPermission: status === 'granted' })
     }
 
-    snap = async () => {
+    _snap = async () => {
         console.log('TEST')
         if (this.camera) {
             let photo = await this.camera.takePictureAsync()
@@ -22,7 +26,27 @@ class CameraScreen extends Component {
             this.props.navigation.navigate('Photo', {
                 photo: this.state.photo,
             });
-        } else console.log('not a cam')
+        } else {
+            console.log('not a cam')
+        }
+    }
+
+    _pickImage = async () => {
+        const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL)
+        await this.setState({ hasCameraRollPermission: status === 'granted' })
+
+        // let photo = await ImagePicker.launchImageLibraryAsync({
+        //     allowsEditing: true,
+        //     aspect: [4, 3],
+        // })
+
+        let photo = await ImagePicker.launchImageLibraryAsync()
+
+        await this.setState({ photo: photo })
+            
+        this.props.navigation.navigate('Photo', {
+            photo: this.state.photo,
+        });
     }
 
     render() {
@@ -83,9 +107,7 @@ class CameraScreen extends Component {
                                     bottom: 50
                                 }}
                                 onPress={() => {
-                                    this.props.navigation.navigate('CameraRoll', {
-                                        photo: this.state.photo,
-                                    })
+                                    this._pickImage();
                                 }}
                             >
                                 <Image
@@ -106,7 +128,7 @@ class CameraScreen extends Component {
                                     bottom: 40,
                                 }}
                                 onPress={() => {
-                                    this.snap();
+                                    this._snap();
                                 }}
                             >
                                 <Image

@@ -15,6 +15,8 @@ import PhotoScreen from './components/PhotoScreen'
 import CameraScreen from './components/CameraScreen'
 import CameraRollScreen from './components/CameraRollScreen'
 
+import Camera from './components/Camera'
+
 import ClassDetail from './components/ClassDetail'
 import ListCard from './components/ListCard'
 
@@ -25,7 +27,8 @@ const ScheduleStack = createStackNavigator({
         screen: ScheduleScreen,
     },
     Camera: {
-        screen: CameraScreen,
+        //screen: CameraScreen,
+        screen: Camera,
         navigationOptions: {
             header: null,
         },
