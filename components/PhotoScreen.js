@@ -3,7 +3,14 @@ import { View, Image, Text, StyleSheet } from 'react-native'
 
 class PhotoScreen extends Component {
     static navigationOptions = {
-        header: null
+        header: null,
+        transitionConfig : () => ({
+            transitionSpec: {
+                duration: 5,
+                timing: Animated.timing,
+                easing: Easing.step0,
+            },
+        }),
     }
 
     render() {

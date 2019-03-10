@@ -76,17 +76,12 @@ class CameraScreen extends Component {
 
                             <TouchableOpacity
                                 style={{
-                                    // flex: 0.2,
-                                    // alignSelf: 'flex-end',
-                                    // alignItems: 'center',
                                     position: 'absolute',
-                                    // justifyContent: 'center',
-                                    // alignItems: 'center',
                                     left: 80,
                                     bottom: 50
                                 }}
                                 onPress={() => {
-                                    this.props.navigation.navigate('Photo', {
+                                    this.props.navigation.navigate('CameraRoll', {
                                         photo: this.state.photo,
                                     })
                                 }}
@@ -95,8 +90,6 @@ class CameraScreen extends Component {
                                     style={{
                                         height: 40,
                                         width: 40,
-                                        // marginBottom: 50,
-                                        // marginLeft: 80,
                                     }}
                                     source={require('../assets/album.png')}
                                 />
@@ -105,11 +98,6 @@ class CameraScreen extends Component {
                             {/* Snap */}
                             <TouchableOpacity
                                 style={{
-                                    //flex: 1,
-                                    // alignSelf: 'flex-end',
-                                    // alignItems: 'center',
-                                    // justifyContent: 'center',
-
                                     position: 'absolute',
                                     alignSelf: 'center',
                                     left: (Dimensions.get('window').width / 2) - 30,
@@ -130,12 +118,7 @@ class CameraScreen extends Component {
 
                             <TouchableOpacity
                                 style={{
-                                    // flex: 0.2,
-                                    // alignSelf: 'flex-end',
-                                    // alignItems: 'center',
                                     position: 'absolute',
-                                    // justifyContent: 'center',
-                                    // alignItems: 'center',
                                     right: 80,
                                     bottom: 50
                                 }}
@@ -153,8 +136,6 @@ class CameraScreen extends Component {
                                     style={{
                                         height: 40,
                                         width: 40,
-                                        // marginBottom: 50,
-                                        // marginRight: 80,
                                     }}
                                     source={require('../assets/reverse.png')}
                                 />

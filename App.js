@@ -30,6 +30,13 @@ const ScheduleStack = createStackNavigator({
         screen: CameraScreen,
         navigationOptions: {
             header: null,
+            transitionConfig: () => ({
+                transitionSpec: {
+                    duration: 0,
+                    timing: Animated.timing,
+                    easing: Easing.step0,
+                },
+            }),
         },
     },
     CameraRoll: {
