@@ -3,7 +3,7 @@ import { View, Image, Text, StyleSheet } from 'react-native'
 
 class PhotoScreen extends Component {
     static navigationOptions = {
-        title: 'Finalize your notes',
+        header: null
     }
 
     render() {

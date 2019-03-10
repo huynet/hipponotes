@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, Image } from 'react-native'
+import { Text, View, TouchableOpacity, Image, Dimensions } from 'react-native'
 import { Camera, ImagePicker, Permissions, Svg } from 'expo'
 
 class CameraScreen extends Component {
@@ -68,7 +68,7 @@ class CameraScreen extends Component {
                                         height: 30,
                                         width: 30,
                                         marginTop: 60,
-                                        marginLeft: 40,
+                                        marginLeft: 30,
                                     }}
                                     source={require('../assets/back.png')}
                                 />
@@ -111,8 +111,8 @@ class CameraScreen extends Component {
                                     // justifyContent: 'center',
 
                                     position: 'absolute',
-                                    backgroundColor: 'red',
                                     alignSelf: 'center',
+                                    left: (Dimensions.get('window').width / 2) - 30,
                                     bottom: 40,
                                 }}
                                 onPress={() => {
