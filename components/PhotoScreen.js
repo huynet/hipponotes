@@ -11,19 +11,21 @@ class PhotoScreen extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            text: '',
+            title: '',
         }
     }
 
     render() {
         const photo = this.props.navigation.getParam('photo', null)
+        console.log("Photo is:")
+        console.log(photo)
         return (
             <View style={styles.container}>
                 <TextInput
                     style={styles.textInput}
                     placeholder="Title"
-                    onChangeText={text => this.setState({ text })}
-                    value={this.state.text}
+                    onChangeText={title => this.setState({ title })}
+                    value={this.state.title}
                 />
                 <Image style={styles.image} source={{ uri: photo.uri }} />
             </View>
@@ -31,7 +33,7 @@ class PhotoScreen extends Component {
     }
 }
 
-export default PhotoScreen
+export default PhotoScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -47,9 +49,8 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     image: {
-        flex: 1,
-        width: (_width / 2) - 20,
-        //height: _height / 2 - 20,
+        height: 400,
+        width: 250,
         borderRadius: 10,
     },
 })
