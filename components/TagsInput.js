@@ -9,7 +9,6 @@ const inputProps = {
     style: {
         fontSize: 20,
         marginVertical: Platform.OS == 'ios' ? 10 : -2,
-
     },
 }
 
@@ -67,7 +66,7 @@ class TagsInput extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1, margin: 10, marginTop: 30 }}>
+            <View style={{ flex: 1, margin: 10, marginTop: 30, height: 100 }}>
                 <View
                     style={{
                         flexDirection: 'row',
@@ -84,9 +83,9 @@ class TagsInput extends Component {
                         onChangeText={this.onChangeText}
                         //tagColor="blue"
                         //tagTextColor="white"
-                        inputProps={inputProps}
-                        maxHeight={700}
+                        //inputProps={inputProps}
                         tagContainerStyle={styles.tagContainer}
+                        tagTextStyle={styles.tagText}
                     />
                 </View>
             </View>
@@ -98,11 +97,14 @@ export default TagsInput;
 
 const styles = StyleSheet.create({
     tagContainer: {
-        fontFamily: 'Avenir Next',
-        fontSize: 14,
         backgroundColor: 'yellow',
+        borderRadius: 15,
         paddingTop: 5,
         paddingBottom: 5,
-        height: 40
+        height: 30
+    },
+    tagText: {
+        fontFamily: 'Avenir Next',
+        fontSize: 14
     }
 })
