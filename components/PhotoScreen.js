@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View, Image, TextInput, StyleSheet, Dimensions } from 'react-native'
-
-var { _height, _width } = Dimensions.get('window')
+import TagsInput from './TagsInput'
 
 class PhotoScreen extends Component {
     static navigationOptions = {
@@ -12,13 +11,16 @@ class PhotoScreen extends Component {
         super(props)
         this.state = {
             title: '',
-            desc: ''
+            desc: '',
+            emails: [],
+            text: null
         }
     }
 
     render() {
         const photo = this.props.navigation.getParam('photo', null)
-        const imageRatio = photo.height / photo.width
+        console.log(this.state.emails)
+        console.log(this.state.text)
         return (
             <View style={styles.container}>
                 <TextInput
@@ -27,7 +29,7 @@ class PhotoScreen extends Component {
                     onChangeText={title => this.setState({ title })}
                     value={this.state.title}
                 />
-                <Image style={styles.image} source={{ uri: photo.uri }}/>
+                <Image style={styles.image} source={{ uri: photo.uri }} />
                 <TextInput
                     style={styles.descInput}
                     placeholder="Description"
@@ -35,12 +37,13 @@ class PhotoScreen extends Component {
                     value={this.state.desc}
                     multiline={true}
                 />
+                <TagsInput />
             </View>
         )
     }
 }
 
-export default PhotoScreen;
+export default PhotoScreen
 
 const styles = StyleSheet.create({
     container: {
@@ -53,13 +56,13 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         fontFamily: 'Avenir Next',
         fontWeight: '600',
-        fontSize: 20
+        fontSize: 20,
     },
     descInput: {
         borderWidth: 0,
         fontFamily: 'Avenir Next',
         fontWeight: '600',
-        fontSize: 18
+        fontSize: 18,
     },
     image: {
         height: 200,
