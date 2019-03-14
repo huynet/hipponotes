@@ -12,22 +12,29 @@ class PhotoScreen extends Component {
         super(props)
         this.state = {
             title: '',
+            desc: ''
         }
     }
 
     render() {
         const photo = this.props.navigation.getParam('photo', null)
-        console.log("Photo is:")
-        console.log(photo)
+        const imageRatio = photo.height / photo.width
         return (
             <View style={styles.container}>
                 <TextInput
-                    style={styles.textInput}
+                    style={styles.titleInput}
                     placeholder="Title"
                     onChangeText={title => this.setState({ title })}
                     value={this.state.title}
                 />
-                <Image style={styles.image} source={{ uri: photo.uri }} />
+                <Image style={styles.image} source={{ uri: photo.uri }}/>
+                <TextInput
+                    style={styles.descInput}
+                    placeholder="Description"
+                    onChangeText={desc => this.setState({ desc })}
+                    value={this.state.desc}
+                    multiline={true}
+                />
             </View>
         )
     }
@@ -41,16 +48,21 @@ const styles = StyleSheet.create({
         padding: 40,
         backgroundColor: '#F1F3FA',
     },
-    textInput: {
+    titleInput: {
         height: 40,
         borderWidth: 0,
         fontFamily: 'Avenir Next',
         fontWeight: '600',
         fontSize: 20
     },
+    descInput: {
+        borderWidth: 0,
+        fontFamily: 'Avenir Next',
+        fontWeight: '600',
+        fontSize: 18
+    },
     image: {
-        height: 400,
-        width: 250,
+        height: 200,
         borderRadius: 10,
     },
 })
