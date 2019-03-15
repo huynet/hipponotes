@@ -28,14 +28,19 @@ class PhotoScreen extends Component {
                     placeholder="Title"
                     onChangeText={title => this.setState({ title })}
                     value={this.state.title}
+                    returnKeyType="next"
+                    onSubmitEditing={() => { this.secondTextInput.focus(); }}
+                    blurOnSubmit={false}
+                    autoFocus={true}
                 />
                 <Image style={styles.image} source={{ uri: photo.uri }} />
                 <TextInput
+                    ref={(input) => { this.secondTextInput = input; }}
                     style={styles.descInput}
                     placeholder="Description"
                     onChangeText={desc => this.setState({ desc })}
                     value={this.state.desc}
-                    multiline={true}
+                    //multiline={true}
                 />
                 <TagsInput />
             </View>
@@ -43,7 +48,7 @@ class PhotoScreen extends Component {
     }
 }
 
-export default PhotoScreen
+export default PhotoScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -56,13 +61,14 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         fontFamily: 'Avenir Next',
         fontWeight: '600',
-        fontSize: 20,
+        fontSize: 20
     },
     descInput: {
         borderWidth: 0,
         fontFamily: 'Avenir Next',
         fontWeight: '500',
         fontSize: 18,
+        marginTop: 5
     },
     image: {
         height: 200,

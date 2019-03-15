@@ -4,23 +4,23 @@ import TagInput from 'react-native-tag-input'
 
 const inputProps = {
     keyboardType: 'default',
-    autoFocus: true,
+    autoFocus: false,
     style: {
+        fontFamily: 'Avenir Next',
         fontSize: 14,
-        marginVertical: Platform.OS == 'ios' ? 10 : -2,
+        fontWeight: '500',
+        marginVertical: Platform.OS == 'ios' ? 4 : -2,
     },
+}
+
+const scrollViewProps = {
+    scrollEnabled: false
 }
 
 class TagsInput extends Component {
     state = {
         tags: [],
         text: '',
-        horizontalTags: [],
-        horizontalText: '',
-    }
-
-    onChangeTags = tags => {
-        this.setState({ tags })
     }
 
     onChangeText = text => {
@@ -37,35 +37,9 @@ class TagsInput extends Component {
         }
     }
 
-    labelExtractor = tag => tag
-
-    onChangeHorizontalTags = horizontalTags => {
-        this.setState({
-            horizontalTags,
-        })
-    }
-
-    onChangeHorizontalText = horizontalText => {
-        this.setState({ horizontalText })
-
-        const lastTyped = horizontalText.charAt(horizontalText.length - 1)
-        const parseWhen = [',', ' ', ';', '\n']
-
-        if (parseWhen.indexOf(lastTyped) > -1) {
-            this.setState({
-                horizontalTags: [
-                    ...this.state.horizontalTags,
-                    this.state.horizontalText,
-                ],
-                horizontalText: '',
-            })
-            this._horizontalTagInput.scrollToEnd()
-        }
-    }
-
     render() {
         return (
-            <View style={{ flex: 1, marginTop: 15}}>
+            <View style={{ flex: 1, marginTop: 5}}>
                 <View
                     style={{
                         //flexDirection: 'row',
@@ -74,18 +48,16 @@ class TagsInput extends Component {
                         height: 500
                     }}
                 >
-                    {/* <Text>To: </Text> */}
                     <TagInput
                         value={this.state.tags}
-                        onChange={this.onChangeTags}
-                        labelExtractor={this.labelExtractor}
+                        onChange={(tags) => this.setState(tags)}
+                        labelExtractor={(tag) => tag}
                         text={this.state.text}
                         onChangeText={this.onChangeText}
-                        //tagColor="blue"
-                        tagTextColor="black"
                         inputProps={inputProps}
                         tagContainerStyle={styles.tagContainer}
                         tagTextStyle={styles.tagText}
+                        scrollViewProps={scrollViewProps}
                     />
                 </View>
             </View>
@@ -100,12 +72,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#C7C7CD',
         borderRadius: 15,
         paddingTop: 5,
-        paddingBottom: 5,
-        height: 30
+        paddingBottom: 7,
+        height: 30,
+        marginTop: 0,
+        marginBottom: 5
     },
     tagText: {
         fontFamily: 'Avenir Next',
         fontSize: 14,
-        fontWeight: '500'
+        fontWeight: '500',
+        color: 'black'
     }
 })
