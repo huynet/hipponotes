@@ -14,7 +14,7 @@ const inputProps = {
 }
 
 const scrollViewProps = {
-    scrollEnabled: false
+    scrollEnabled: true
 }
 
 class TagsInput extends Component {
@@ -50,7 +50,7 @@ class TagsInput extends Component {
                 >
                     <TagInput
                         value={this.state.tags}
-                        onChange={(tags) => this.setState(tags)}
+                        onChange={(tags) => this.setState({tags})}
                         labelExtractor={(tag) => tag}
                         text={this.state.text}
                         onChangeText={this.onChangeText}
@@ -69,7 +69,7 @@ export default TagsInput;
 
 const styles = StyleSheet.create({
     tagContainer: {
-        backgroundColor: '#C7C7CD',
+        backgroundColor: '#EFEFEF',
         borderRadius: 15,
         paddingTop: 5,
         paddingBottom: 7,
@@ -84,3 +84,4 @@ const styles = StyleSheet.create({
         color: 'black'
     }
 })
+
