@@ -4,10 +4,9 @@ import TagInput from 'react-native-tag-input'
 
 const inputProps = {
     keyboardType: 'default',
-    placeholder: 'tags',
     autoFocus: true,
     style: {
-        fontSize: 20,
+        fontSize: 14,
         marginVertical: Platform.OS == 'ios' ? 10 : -2,
     },
 }
@@ -66,15 +65,16 @@ class TagsInput extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1, margin: 10, marginTop: 30, height: 100 }}>
+            <View style={{ flex: 1, marginTop: 15}}>
                 <View
                     style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        backgroundColor: 'lightgray',
+                        //flexDirection: 'row',
+                        //alignItems: 'center',
+                        //backgroundColor: 'lightgray',
+                        height: 500
                     }}
                 >
-                    <Text>To: </Text>
+                    {/* <Text>To: </Text> */}
                     <TagInput
                         value={this.state.tags}
                         onChange={this.onChangeTags}
@@ -82,8 +82,8 @@ class TagsInput extends Component {
                         text={this.state.text}
                         onChangeText={this.onChangeText}
                         //tagColor="blue"
-                        //tagTextColor="white"
-                        //inputProps={inputProps}
+                        tagTextColor="black"
+                        inputProps={inputProps}
                         tagContainerStyle={styles.tagContainer}
                         tagTextStyle={styles.tagText}
                     />
@@ -97,7 +97,7 @@ export default TagsInput;
 
 const styles = StyleSheet.create({
     tagContainer: {
-        backgroundColor: 'yellow',
+        backgroundColor: '#C7C7CD',
         borderRadius: 15,
         paddingTop: 5,
         paddingBottom: 5,
@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
     },
     tagText: {
         fontFamily: 'Avenir Next',
-        fontSize: 14
+        fontSize: 14,
+        fontWeight: '500'
     }
 })

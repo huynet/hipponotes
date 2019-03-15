@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     descInput: {
         borderWidth: 0,
         fontFamily: 'Avenir Next',
-        fontWeight: '600',
+        fontWeight: '500',
         fontSize: 18,
     },
     image: {
