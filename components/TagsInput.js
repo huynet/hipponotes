@@ -7,7 +7,7 @@ const inputProps = {
     autoFocus: false,
     style: {
         fontFamily: 'Avenir Next',
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: '500',
         marginVertical: Platform.OS == 'ios' ? 4 : -2,
     },
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     },
     tagText: {
         fontFamily: 'Avenir Next',
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: '500',
         color: 'black'
     }
