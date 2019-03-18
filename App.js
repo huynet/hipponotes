@@ -15,8 +15,6 @@ import ClassesScreen from './components/AppStack/ClassesScreen'
 import ProfileScreen from './components/AppStack/ProfileScreen'
 
 import PhotoScreen from './components/PhotoScreen'
-import CameraScreen from './components/CameraScreen'
-import CameraRollScreen from './components/CameraRollScreen'
 
 import Camera from './components/Camera'
 
@@ -35,9 +33,6 @@ const ScheduleStack = createStackNavigator({
         navigationOptions: {
             header: null,
         },
-    },
-    CameraRoll: {
-        screen: CameraRollScreen,
     },
     Photo: {
         screen: PhotoScreen,

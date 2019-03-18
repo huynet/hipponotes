@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import FrontCard from '../FrontCard'
 
 class ClassesScreen extends Component {
     static navigationOptions = {
@@ -18,17 +19,28 @@ class ClassesScreen extends Component {
                     <Text style={styles.name}>Huy Pham</Text>
                 </View>
 
-                <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate('Camera')}
-                >
-                    <Text>Open Camera</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate('CameraRoll')}
-                >
-                    <Text>Open Camera Roll</Text>
-                </TouchableOpacity>
+                <View style={styles.contentBar}>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('Camera')}
+                    >
+                        <Text>Open Camera</Text>
+                    </TouchableOpacity>
+                    <FrontCard
+                        title="MATH2418"
+                        color="#A4CF30"
+                        desc="Linear Algebra"
+                    />
+                    <FrontCard
+                        title="MATH2418"
+                        color="#A4CF30"
+                        desc="Linear Algebra"
+                    />
+                    <FrontCard
+                        title="MATH2418"
+                        color="#A4CF30"
+                        desc="Linear Algebra"
+                    />
+                </View>
             </View>
         )
     }
@@ -69,4 +81,7 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         marginTop: -3,
     },
+    contentBar: {
+        alignItems: 'center'
+    }
 })

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Platform, StyleSheet } from 'react-native'
+import { Text, View, TouchableOpacity, Platform, StyleSheet } from 'react-native'
 import TagInput from 'react-native-tag-input'
 
 const inputProps = {
@@ -60,6 +60,23 @@ class TagsInput extends Component {
                         scrollViewProps={scrollViewProps}
                     />
                 </View>
+
+                <TouchableOpacity
+                    onPress={() => {
+                        this.setState({
+                            tags: [...this.state.tags, "Hello"],
+                            text: this.state.text,
+                        })
+                        console.log("Current tags:")
+                        console.log(this.state.tags)
+                        console.log("Current text:")
+                        console.log(this.state.text)
+                    }}
+                >
+                    <Text>
+                        Hello
+                    </Text>
+                </TouchableOpacity>
             </View>
         )
     }

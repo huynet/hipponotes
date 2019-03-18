@@ -31,7 +31,10 @@ class PhotoScreen extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.headerContainer}>
-                    <TouchableOpacity style={styles.returnButton}>
+                    <TouchableOpacity 
+                        style={styles.returnButton}
+                        onPress={() => this.props.navigation.goBack()}
+                    >
                         <Text style={styles.returnButtonText}>Return</Text>
                     </TouchableOpacity>
 
