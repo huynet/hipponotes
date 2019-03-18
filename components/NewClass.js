@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontFamily: 'Avenir Next',
-        fontSize: 24,
+        fontSize: 22,
         fontWeight: '600',
     },
     nextButton: {
