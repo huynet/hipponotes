@@ -7,7 +7,8 @@ import {
     ScrollView,
     SafeAreaView,
 } from 'react-native'
-import ListCard from '../ListCard'
+import ListCard from '../ListCard';
+import NewCard from '../NewCard';
 
 class ClassesScreen extends Component {
     static navigationOptions = {
@@ -58,6 +59,7 @@ class ClassesScreen extends Component {
                             color="#4186E0"
                             desc="Intro to Philosophy"
                         />
+                        <NewCard />
                     </SafeAreaView>
                 </ScrollView>
             </View>
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
         color: '#b8bece',
         fontWeight: '600',
         marginLeft: 30,
-        marginTop: 25,
+        marginTop: 15,
         textTransform: 'uppercase',
     },
     name: {

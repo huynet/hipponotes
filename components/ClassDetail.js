@@ -127,7 +127,11 @@ const styles = StyleSheet.create({
       height: 44,
    },
    searchBar: {
-      borderWidth: 1,
-      height: 40
+      //borderWidth: 1,
+      height: 40,
+      fontFamily: 'Avenir Next',
+      fontSize: 16,
+      fontWeight: '500',
+      paddingLeft: 12
    }
 })
