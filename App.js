@@ -72,7 +72,7 @@ const AppStack = createBottomTabNavigator({
     Schedule: {
         screen: ScheduleStack,
         navigationOptions: {
-            tabBarLabel: 'Snaps',
+            tabBarLabel: 'To Do',
             tabBarIcon: ({ tintColor }) => (
                 <Ionicons name="md-calendar" color={tintColor} size={24} />
             ),

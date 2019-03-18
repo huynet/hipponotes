@@ -8,7 +8,6 @@ import {
     SafeAreaView,
 } from 'react-native'
 import ListCard from '../ListCard'
-import SquareCard from '../SquareCard'
 
 class ClassesScreen extends Component {
     static navigationOptions = {
