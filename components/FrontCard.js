@@ -16,12 +16,12 @@ const _height = 70
 
 class FrontCard extends Component {
     render() {
-        const { title, color, desc } = this.props
+        const { title, color, desc, destination } = this.props
         return (
             <TouchableOpacity
                 style={[styles.container, { backgroundColor: color }]}
                 onPress={() => {
-                    this.props.navigation.navigate('Detail', {
+                    this.props.navigation.navigate(destination, {
                         title,
                         color,
                         desc,

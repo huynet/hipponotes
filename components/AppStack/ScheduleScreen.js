@@ -20,25 +20,17 @@ class ClassesScreen extends Component {
                 </View>
 
                 <View style={styles.contentBar}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Camera')}
-                    >
-                        <Text>Open Camera</Text>
-                    </TouchableOpacity>
                     <FrontCard
-                        title="MATH2418"
-                        color="#A4CF30"
-                        desc="Linear Algebra"
+                        title="New Note"
+                        color="#62D26F"
+                        desc="Open Camera"
+                        destination="Camera"
                     />
                     <FrontCard
-                        title="MATH2418"
+                        title="To Do List"
                         color="#A4CF30"
-                        desc="Linear Algebra"
-                    />
-                    <FrontCard
-                        title="MATH2418"
-                        color="#A4CF30"
-                        desc="Linear Algebra"
+                        desc="Finish it!"
+                        destination="Detail"
                     />
                 </View>
             </View>
@@ -46,7 +38,7 @@ class ClassesScreen extends Component {
     }
 }
 
-export default ClassesScreen
+export default ClassesScreen;
 
 const styles = StyleSheet.create({
     container: {
