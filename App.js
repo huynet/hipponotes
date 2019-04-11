@@ -60,6 +60,9 @@ const ClassesStack = createStackNavigator({
     },
     NewClass: {
         screen: NewClass,
+        navigationOptions: {
+            mode: 'modal'
+        }
     }
 })
 

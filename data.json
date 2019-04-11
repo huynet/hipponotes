@@ -1,0 +1,69 @@
+[
+    {
+        "id": 0,
+        "name": "MATH2417",
+        "desc": "Calculus 1",
+        "folders": [
+            {
+                "folderName": "Week 1",
+                "files": [
+                    {
+                        "id": 0,
+                        "title": "Some title",
+                        "desc": "Some desc",
+                        "image": "return the image file",
+                        "tags": [
+                            "some", "tags", "for", "file"
+                        ]
+                    }
+                ]
+            }, {
+                "folderName": "Week 2",
+                "files": [
+                    {
+                        "id": 1,
+                        "title": "Some title",
+                        "desc": "Some desc",
+                        "image": "return the image file",
+                        "tags": [
+                            "this", "is", "week", "2"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }, {
+        "id": 1,
+        "name": "PHIL1301",
+        "desc": "Introduction to Philosophy",
+        "folders": [
+            {
+                "folderName": "Week 1",
+                "files": [
+                    {
+                        "id": 0,
+                        "title": "Some title",
+                        "desc": "Some desc",
+                        "image": "return the image file",
+                        "tags": [
+                            "decartes", "kant", "lenin", "marx"
+                        ]
+                    }
+                ]
+            }, {
+                "folderName": "Week 2",
+                "files": [
+                    {
+                        "id": 1,
+                        "title": "Some title",
+                        "desc": "Some desc",
+                        "image": "return the image file",
+                        "tags": [
+                            "this", "is", "week", "2"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
