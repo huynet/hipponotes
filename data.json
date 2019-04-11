@@ -3,6 +3,7 @@
         "id": 0,
         "name": "MATH2417",
         "desc": "Calculus 1",
+        "color": "green",
         "folders": [
             {
                 "folderName": "Week 1",
@@ -36,6 +37,7 @@
         "id": 1,
         "name": "PHIL1301",
         "desc": "Introduction to Philosophy",
+        "color": "red",
         "folders": [
             {
                 "folderName": "Week 1",
