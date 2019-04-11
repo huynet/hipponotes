@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {
+    FlatList,
     SectionList,
     StyleSheet,
     Text,
@@ -41,15 +42,10 @@ class ClassDetail extends Component {
                     '2.5 Determinants',
                 ],
             },
-            { 
-				title: 'Family', 
-				data: [
-					'Emma', 
-					'Emi', 
-					'Emiliano', 
-					'Ernesto'
-				] 
-			},
+            {
+                title: 'Family',
+                data: ['Emma', 'Emi', 'Emiliano', 'Ernesto'],
+            },
             {
                 title: 'Friends',
                 data: [
@@ -65,6 +61,19 @@ class ClassDetail extends Component {
         ],
     }
 
+    renderSeparator = () => {
+        return (
+            <View
+                style={{
+                    height: 1,
+                    width: '86%',
+                    backgroundColor: '#CED0CE',
+                    marginLeft: '14%',
+                }}
+            />
+        )
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -74,11 +83,11 @@ class ClassDetail extends Component {
                     // onChange={this.setSearchText.bind(this)}
                     placeholder="Search State"
                 />
-                <SectionList
+                {/* <SectionList
                     sections={this.state.course}
-                    renderItem={({ item }) => (
+                    renderItem={({ item, index }) => (
                         <TouchableOpacity>
-                            <Text style={styles.item}>{item}</Text>
+                            <Text key={index} style={styles.item}>{index}{" "}{item}</Text>
                         </TouchableOpacity>
                     )}
                     renderSectionHeader={({ section }) => (
@@ -86,7 +95,27 @@ class ClassDetail extends Component {
                             {section.title}
                         </Text>
                     )}
-                    keyExtractor={(item, index) => index}
+                    keyExtractor={(item, keyIndex) => keyIndex}
+                /> */}
+                <FlatList
+                    data={[
+                        { key: 'a' },
+                        { key: 'b' },
+                        { key: 'c' },
+                        { key: 'd' },
+                    ]}
+                    renderItem={({ item, index }) => (
+                        <TouchableOpacity
+                            onPress={() => {
+                                console.log(index)
+                            }}
+                        >
+                            <Text style={styles.item} key={index}>
+                                {item.key}
+                            </Text>
+                        </TouchableOpacity>
+                    )}
+                    ItemSeparatorComponent={this.renderSeparator}
                 />
             </View>
         )
