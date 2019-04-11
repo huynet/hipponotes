@@ -21,7 +21,7 @@ class ListCard extends Component {
             <TouchableOpacity
                 style={[styles.container, { backgroundColor: color }]}
                 onPress={() => {
-                    this.props.navigation.navigate('Detail', {
+                    this.props.navigation.navigate('Class', {
                         title,
                         color,
                         desc,

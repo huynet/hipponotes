@@ -20,7 +20,7 @@ import Camera from './components/Camera'
 
 import NewClass from './components/NewClass'
 import ClassDetail from './components/ClassDetail'
-import ListCard from './components/ListCard'
+import FolderDetail from './components/FolderDetail'
 
 import ProfileSettings from './components/ProfileSettings'
 
@@ -55,8 +55,11 @@ const ClassesStack = createStackNavigator({
     Classes: {
         screen: ClassesScreen,
     },
-    Detail: {
+    Class: {
         screen: ClassDetail,
+    },
+    Folder: {
+        screen: FolderDetail,
     },
     NewClass: {
         screen: NewClass,
