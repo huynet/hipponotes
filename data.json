@@ -6,6 +6,7 @@
         "color": "green",
         "folders": [
             {
+                "id": 0,
                 "folderName": "Week 1",
                 "files": [
                     {
@@ -19,6 +20,7 @@
                     }
                 ]
             }, {
+                "id": 1,
                 "folderName": "Week 2",
                 "files": [
                     {
@@ -40,6 +42,7 @@
         "color": "red",
         "folders": [
             {
+                "id": 0,
                 "folderName": "Week 1",
                 "files": [
                     {
@@ -50,9 +53,18 @@
                         "tags": [
                             "decartes", "kant", "lenin", "marx"
                         ]
+                    }, {
+                        "id": 1,
+                        "title": "Some title",
+                        "desc": "Some desc",
+                        "image": "return the image file",
+                        "tags": [
+                            "decartes", "kant", "lenin", "marx"
+                        ]
                     }
                 ]
             }, {
+                "id": 1,
                 "folderName": "Week 2",
                 "files": [
                     {
