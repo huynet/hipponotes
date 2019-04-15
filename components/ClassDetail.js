@@ -66,9 +66,8 @@ class ClassDetail extends Component {
             <View
                 style={{
                     height: 1,
-                    width: '86%',
+                    width: '100%',
                     backgroundColor: '#CED0CE',
-                    marginLeft: '14%',
                 }}
             />
         )
@@ -98,6 +97,7 @@ class ClassDetail extends Component {
                     keyExtractor={(item, keyIndex) => keyIndex}
                 /> */}
                 <FlatList
+                    style={styles.listContainer}
                     data={[
                         { key: 'Folder 1' },
                         { key: 'Folder 2' },
@@ -108,6 +108,7 @@ class ClassDetail extends Component {
                         <TouchableOpacity
                             onPress={() => {
                                 console.log(index)
+                                this.props.navigation.navigate('Folder')
                             }}
                         >
                             <Text style={styles.item} key={index}>
@@ -127,6 +128,10 @@ export default ClassDetail
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    },
+    listContainer: {
+        borderTopWidth: 1,
+        borderTopColor: '#CED0CE'
     },
     sectionHeader: {
         paddingTop: 5,

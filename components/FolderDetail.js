@@ -65,9 +65,10 @@ class FolderDetail extends Component {
             <View
                 style={{
                     height: 1,
-                    width: '86%',
+                    //width: '86%',
+                    //marginLeft: '14%',
+                    width: '100%',
                     backgroundColor: '#CED0CE',
-                    marginLeft: '14%',
                 }}
             />
         )
@@ -97,11 +98,12 @@ class FolderDetail extends Component {
                     keyExtractor={(item, keyIndex) => keyIndex}
                 /> */}
                 <FlatList
+                    style={styles.listContainer}
                     data={[
-                        { key: 'Folder 1' },
-                        { key: 'Folder 2' },
-                        { key: 'Folder 3' },
-                        { key: 'Folder 4' },
+                        { key: 'Item 1' },
+                        { key: 'Item 3' },
+                        { key: 'Item 5' },
+                        { key: 'Item 7' },
                     ]}
                     renderItem={({ item, index }) => (
                         <TouchableOpacity
@@ -126,6 +128,10 @@ export default FolderDetail;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    },
+    listContainer: {
+        borderTopWidth: 1,
+        borderTopColor: '#CED0CE'
     },
     sectionHeader: {
         paddingTop: 5,
