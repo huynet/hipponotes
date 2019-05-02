@@ -1,4 +1,14 @@
-Changes made (Updated April 14th):
+## Front-end for Hipponotes
+[Fullstack Repo](https://github.com/acm-projects/smart-lecture-notes)
+[Demo](https://im3.ezgif.com/tmp/ezgif-3-367e7d2dd57a.gif)
+
+## Video Walkthrough
+
+Here's a walkthrough of the presentation demo:
+
+<img src='demo.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
+
+Updated April 14th:
 
 App.js:
   * Imported the screens that I created (LoginScreen, SplashScreen, SignUpScreen, and WalkthoughScreen)
