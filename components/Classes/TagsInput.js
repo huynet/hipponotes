@@ -1,6 +1,11 @@
-import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, Platform, StyleSheet } from 'react-native'
-import TagInput from 'react-native-tag-input'
+import React, { Component } from 'react';
+import {
+    View,
+    TouchableOpacity,
+    Platform,
+    StyleSheet
+} from 'react-native';
+import TagInput from 'react-native-tag-input';
 
 const inputProps = {
     keyboardType: 'default',
@@ -9,49 +14,46 @@ const inputProps = {
         fontFamily: 'Avenir Next',
         fontSize: 16,
         fontWeight: '500',
-        marginVertical: Platform.OS == 'ios' ? 4 : -2,
-    },
-}
+        marginVertical: Platform.OS == 'ios' ? 4 : -2
+    }
+};
 
 const scrollViewProps = {
     scrollEnabled: true
-}
+};
 
 class TagsInput extends Component {
     state = {
         tags: [],
-        text: '',
-    }
+        text: ''
+    };
 
     onChangeText = text => {
-        this.setState({ text })
+        this.setState({ text });
 
-        const lastTyped = text.charAt(text.length - 1)
-        const parseWhen = [',', ' ', ';', '\n']
+        const lastTyped = text.charAt(text.length - 1);
+        const parseWhen = [',', ' ', ';', '\n'];
 
         if (parseWhen.indexOf(lastTyped) > -1) {
             this.setState({
                 tags: [...this.state.tags, this.state.text],
-                text: '',
-            })
+                text: ''
+            });
         }
-    }
+    };
 
     render() {
         return (
-            <View style={{ flex: 1, marginTop: 5}}>
+            <View style={{ flex: 1, marginTop: 5 }}>
                 <View
                     style={{
-                        //flexDirection: 'row',
-                        //alignItems: 'center',
-                        //backgroundColor: 'lightgray',
                         height: 500
                     }}
                 >
                     <TagInput
                         value={this.state.tags}
-                        onChange={(tags) => this.setState({tags})}
-                        labelExtractor={(tag) => tag}
+                        onChange={tags => this.setState({ tags })}
+                        labelExtractor={tag => tag}
                         text={this.state.text}
                         onChangeText={this.onChangeText}
                         inputProps={inputProps}
@@ -64,21 +66,17 @@ class TagsInput extends Component {
                 <TouchableOpacity
                     onPress={() => {
                         this.setState({
-                            tags: [...this.state.tags, "Hello"],
-                            text: this.state.text,
-                        })
-                        console.log("Current tags:")
-                        console.log(this.state.tags)
-                        console.log("Current text:")
-                        console.log(this.state.text)
+                            tags: [...this.state.tags],
+                            text: this.state.text
+                        });
+                        console.log('Current tags:');
+                        console.log(this.state.tags);
+                        console.log('Current text:');
+                        console.log(this.state.text);
                     }}
-                >
-                    <Text>
-                        Hello
-                    </Text>
-                </TouchableOpacity>
+                />
             </View>
-        )
+        );
     }
 }
 
@@ -100,5 +98,4 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         color: 'black'
     }
-})
-
+});

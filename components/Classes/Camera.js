@@ -1,65 +1,68 @@
-import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, Image, Dimensions } from 'react-native'
-import { Camera, ImagePicker, Permissions, Svg } from 'expo'
-
-var { height, width } = Dimensions.get('window')
+import React, { Component } from 'react';
+import { Text, View, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { Camera, ImagePicker, Permissions } from 'expo';
 
 class CameraScreen extends Component {
     state = {
         image: null,
         hasCameraRollPermission: null,
         hasCameraPermission: null,
-        type: Camera.Constants.Type.back,
-    }
+        type: Camera.Constants.Type.back
+    };
 
     async componentDidMount() {
-        const { status } = await Permissions.askAsync(Permissions.CAMERA)
-        this.setState({ hasCameraPermission: status === 'granted' })
+        const { status } = await Permissions.askAsync(Permissions.CAMERA);
+        this.setState({ hasCameraPermission: status === 'granted' });
     }
 
     _snap = async () => {
-        console.log('TEST')
+        console.log('TEST');
         if (this.camera) {
-            let photo = await this.camera.takePictureAsync()
-            await this.setState({ photo: photo })
-            
+            let photo = await this.camera.takePictureAsync({ base64: true });
+            await this.setState({ photo: photo });
+
+            // var file = this._dataURItoBlob(photo.uri);
+            // const f = new File([file], 'haha.jpg');
+            // console.log(f);
+
             this.props.navigation.navigate('Photo', {
                 photo: this.state.photo,
+                _foldersIndex: this.props.navigation.getParam('_foldersIndex'),
+                _foldersID: this.props.navigation.getParam('_foldersID')
             });
         } else {
-            console.log('not a cam')
+            console.log('not a cam');
         }
-    }
+    };
 
     _pickImage = async () => {
-        const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL)
-        await this.setState({ hasCameraRollPermission: status === 'granted' })
+        const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+        await this.setState({ hasCameraRollPermission: status === 'granted' });
 
-        // let photo = await ImagePicker.launchImageLibraryAsync({
-        //     allowsEditing: true,
-        //     aspect: [4, 3],
-        // })
+        let photo = await ImagePicker.launchImageLibraryAsync({ base64: true });
 
-        let photo = await ImagePicker.launchImageLibraryAsync()
+        console.log(photo);
 
-        await this.setState({ photo: photo })
-            
+        await this.setState({ photo: photo });
+
         this.props.navigation.navigate('Photo', {
             photo: this.state.photo,
+            _foldersIndex: this.props.navigation.getParam('_foldersIndex'),
+            _foldersID: this.props.navigation.getParam('_foldersID')
         });
-    }
+    };
 
     render() {
-        const { hasCameraPermission } = this.state
+        const { hasCameraPermission } = this.state;
         if (hasCameraPermission === null) {
-            return <View />
+            return <View />;
         } else if (hasCameraPermission === false) {
             return (
                 <View>
                     <Text>No access to camera</Text>
                     <Text>Head to settings and free us!</Text>
                 </View>
-            )
+            );
         } else {
             return (
                 <View style={{ flex: 1 }}>
@@ -67,14 +70,14 @@ class CameraScreen extends Component {
                         style={{ flex: 1 }}
                         type={this.state.type}
                         ref={ref => {
-                            this.camera = ref
+                            this.camera = ref;
                         }}
                     >
                         <View
                             style={{
                                 flex: 1,
                                 backgroundColor: 'transparent',
-                                flexDirection: 'row',
+                                flexDirection: 'row'
                             }}
                         >
                             {/* return button */}
@@ -82,10 +85,10 @@ class CameraScreen extends Component {
                                 style={{
                                     //alignSelf: 'flex-start',
                                     //alignItems: 'center',
-                                    position: 'absolute',
+                                    position: 'absolute'
                                 }}
                                 onPress={() => {
-                                    this.props.navigation.goBack()
+                                    this.props.navigation.goBack();
                                 }}
                             >
                                 <Image
@@ -93,9 +96,9 @@ class CameraScreen extends Component {
                                         height: 30,
                                         width: 30,
                                         marginTop: 60,
-                                        marginLeft: 30,
+                                        marginLeft: 30
                                     }}
-                                    source={require('../assets/back.png')}
+                                    source={require('../../assets/back.png')}
                                 />
                             </TouchableOpacity>
 
@@ -113,9 +116,9 @@ class CameraScreen extends Component {
                                 <Image
                                     style={{
                                         height: 40,
-                                        width: 40,
+                                        width: 40
                                     }}
-                                    source={require('../assets/album.png')}
+                                    source={require('../../assets/album.png')}
                                 />
                             </TouchableOpacity>
 
@@ -124,8 +127,9 @@ class CameraScreen extends Component {
                                 style={{
                                     position: 'absolute',
                                     alignSelf: 'center',
-                                    left: (Dimensions.get('window').width / 2) - 30,
-                                    bottom: 40,
+                                    left:
+                                        Dimensions.get('window').width / 2 - 30,
+                                    bottom: 40
                                 }}
                                 onPress={() => {
                                     this._snap();
@@ -134,9 +138,9 @@ class CameraScreen extends Component {
                                 <Image
                                     style={{
                                         height: 60,
-                                        width: 60,
+                                        width: 60
                                     }}
-                                    source={require('../assets/snap.png')}
+                                    source={require('../../assets/snap.png')}
                                 />
                             </TouchableOpacity>
 
@@ -152,24 +156,24 @@ class CameraScreen extends Component {
                                             this.state.type ===
                                             Camera.Constants.Type.back
                                                 ? Camera.Constants.Type.front
-                                                : Camera.Constants.Type.back,
-                                    })
+                                                : Camera.Constants.Type.back
+                                    });
                                 }}
                             >
                                 <Image
                                     style={{
                                         height: 40,
-                                        width: 40,
+                                        width: 40
                                     }}
-                                    source={require('../assets/reverse.png')}
+                                    source={require('../../assets/reverse.png')}
                                 />
                             </TouchableOpacity>
                         </View>
                     </Camera>
                 </View>
-            )
+            );
         }
     }
 }
 
-export default CameraScreen
+export default CameraScreen;

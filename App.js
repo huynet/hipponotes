@@ -1,113 +1,32 @@
-import React from 'react'
-import {
-    Animated, Easing
-} from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
+import React from 'react';
+import Navigator from './Navigator';
+import { Provider } from 'react-redux';
 
-import {
-    createStackNavigator,
-    createBottomTabNavigator,
-    createAppContainer,
-} from 'react-navigation'
+import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
 
-import ScheduleScreen from './components/AppStack/ScheduleScreen'
-import ClassesScreen from './components/AppStack/ClassesScreen'
-import ProfileScreen from './components/AppStack/ProfileScreen'
+import reducers from './reducers';
 
-import PhotoScreen from './components/PhotoScreen'
+const store = createStore(reducers, applyMiddleware(thunk));
 
-import Camera from './components/Camera'
-
-import NewClass from './components/NewClass'
-import ClassDetail from './components/ClassDetail'
-import FolderDetail from './components/FolderDetail'
-
-import ProfileSettings from './components/ProfileSettings'
-
-const ScheduleStack = createStackNavigator({
-    Schedule: {
-        screen: ScheduleScreen,
-    },
-    Camera: {
-        //screen: CameraScreen,
-        screen: Camera,
-        navigationOptions: {
-            header: null,
-        },
-    },
-    Photo: {
-        screen: PhotoScreen,
-    },
-})
-
-ScheduleStack.navigationOptions = ({ navigation }) => {
-    let tabBarVisible = true
-    if (navigation.state.index == 1 || navigation.state.index == 2) {
-        tabBarVisible = false
-    }
-
-    return {
-        tabBarVisible,
+class App extends React.Component {
+    render() {
+        return (
+            <Provider store={store}>
+                <Navigator />
+            </Provider>
+        );
     }
 }
 
-const ClassesStack = createStackNavigator({
-    Classes: {
-        screen: ClassesScreen,
-    },
-    Class: {
-        screen: ClassDetail,
-    },
-    Folder: {
-        screen: FolderDetail,
-    },
-    NewClass: {
-        screen: NewClass,
-        navigationOptions: {
-            mode: 'modal'
-        }
-    }
-})
+// const mapStateToProps = (state) => ({
+//     all: state.all
+// });
 
-const ProfileStack = createStackNavigator({
-    Profile: {
-        screen: ProfileScreen,
-    },
-    Settings: {
-        screen: ProfileSettings,
-    },
-})
+// // The connect function will store.dispatch(action) behind the screen for us
+// export default connect(
+//     mapStateToProps, //suppose to be mapStateToPosts
+//     { fetchAll }
+// )(App);
 
-const AppStack = createBottomTabNavigator({
-    Schedule: {
-        screen: ScheduleStack,
-        navigationOptions: {
-            tabBarLabel: 'To Do',
-            tabBarIcon: ({ tintColor }) => (
-                <Ionicons name="md-calendar" color={tintColor} size={24} />
-            ),
-        },
-    },
-    Classes: {
-        screen: ClassesStack,
-        navigationOptions: {
-            tabBarLabel: 'Classes',
-            tabBarIcon: ({ tintColor }) => (
-                <Ionicons name="ios-albums" color={tintColor} size={24} />
-            ),
-        },
-    },
-    Profile: {
-        screen: ProfileStack,
-        navigationOptions: {
-            tabBarLabel: 'Profile',
-            tabBarIcon: ({ tintColor }) => (
-                <Ionicons name="ios-person" color={tintColor} size={24} />
-            ),
-        },
-    },
-})
-
-const App = createAppContainer(AppStack)
-
-export default App
+export default App;

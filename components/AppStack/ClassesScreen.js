@@ -1,19 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
     StyleSheet,
     Text,
     View,
     Image,
     ScrollView,
-    SafeAreaView,
-} from 'react-native'
-import ListCard from '../ListCard';
-import NewCard from '../NewCard';
+    SafeAreaView
+} from 'react-native';
+import ListCard from '../Classes/ListCard';
+import NewCard from '../Classes/NewCard';
+
+import { connect } from 'react-redux';
 
 class ClassesScreen extends Component {
     static navigationOptions = {
-        header: null,
-    }
+        header: null
+    };
 
     render() {
         return (
@@ -25,54 +27,46 @@ class ClassesScreen extends Component {
                     <View style={styles.titleBar}>
                         <Image
                             style={styles.avatar}
-                            source={require('../../assets/huy.jpg')}
+                            source={require('../../assets/temoc.jpg')}
                         />
                         <Text style={styles.title}>Welcome back,</Text>
-                        <Text style={styles.name}>Huy Pham</Text>
+                        <Text style={styles.name}>Temoc</Text>
                     </View>
 
                     <Text style={styles.subTitle}>Your classes</Text>
 
                     <SafeAreaView style={styles.classes}>
-                        <ListCard
-                            title="CS2336"
-                            color="#E8384F"
-                            desc="Introduction to Computer Science 2"
-                        />
-                        <ListCard
-                            title="CS2305"
-                            color="#FD612C"
-                            desc="Discrete Mathematics"
-                        />
-                        <ListCard
-                            title="MATH2418"
-                            color="#A4CF30"
-                            desc="Linear Algebra"
-                        />
-                        <ListCard
-                            title="MATH2419"
-                            color="#62D26F"
-                            desc="Calculus 2"
-                        />
-                        <ListCard
-                            title="PHIL1301"
-                            color="#4186E0"
-                            desc="Intro to Philosophy"
-                        />
+                        {this.props.all.map(function(post, i) {
+                            return (
+                                <ListCard
+                                    key={i}
+                                    title={post.name}
+                                    color={post.color}
+                                    desc={post.desc}
+                                    folders={post.folders}
+                                    classIndex={i}
+                                    classID={post._id}
+                                />
+                            );
+                        })}
                         <NewCard />
                     </SafeAreaView>
                 </ScrollView>
             </View>
-        )
+        );
     }
 }
 
-export default ClassesScreen
+const mapStateToProps = state => ({
+    all: state.all
+});
+
+export default connect(mapStateToProps)(ClassesScreen);
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgb(255, 255, 255)',
+        backgroundColor: 'rgb(255, 255, 255)'
     },
     cover: {},
     avatar: {
@@ -83,18 +77,18 @@ const styles = StyleSheet.create({
         marginLeft: 30,
         position: 'absolute',
         top: 0,
-        left: 0,
+        left: 0
     },
     titleBar: {
         width: '100%',
         marginTop: 50,
-        paddingLeft: 90,
+        paddingLeft: 90
     },
     title: {
         fontSize: 16,
         fontFamily: 'Avenir Next',
         color: '#b8bece',
-        fontWeight: '500',
+        fontWeight: '500'
     },
     subTitle: {
         fontSize: 15,
@@ -103,18 +97,18 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         marginLeft: 30,
         marginTop: 15,
-        textTransform: 'uppercase',
+        textTransform: 'uppercase'
     },
     name: {
         fontSize: 20,
         fontFamily: 'Avenir Next',
         color: '#3c4560',
         fontWeight: '700',
-        marginTop: -3,
+        marginTop: -3
     },
     classes: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'space-evenly',
-    },
-})
+        justifyContent: 'space-evenly'
+    }
+});
